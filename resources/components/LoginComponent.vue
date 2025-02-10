@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">Login</div>
+                    <div class="card-header text-center">Iniciar Sesión</div>
                     <div class="card-body">
                         <form @submit.prevent="submitForm">
                             <div class="mb-3">
@@ -13,6 +13,10 @@
                             <div class="mb-3">
                                 <label for="password" class="form-label">Contraseña</label>
                                 <input v-model="password" type="password" class="form-control" id="password" required>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">Recordarme</label>
                             </div>
                             <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
                         </form>
