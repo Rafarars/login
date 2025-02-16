@@ -24,7 +24,9 @@
 {{--        <div id="app"></div> <!-- Este es el contenedor donde Vue montará el componente -->--}}
 {{--    </body>--}}
 {{--</html>--}}
-    <!DOCTYPE html>
+<!-- resources/views/welcome.blade.php -->
+<!DOCTYPE html>
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">

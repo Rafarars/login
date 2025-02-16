@@ -3,9 +3,9 @@
         <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-6">
             <div class="text-center mb-8">
                 <img
-                    :src="'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-wrYBA25GPGmLdHMNmDdJe5bpXbUdg4.png'"
+                    :src="'https://static.vecteezy.com/system/resources/previews/008/997/710/non_2x/udo-logo-udo-letter-udo-letter-logo-design-initials-udo-logo-linked-with-circle-and-uppercase-monogram-logo-udo-typography-for-technology-business-and-real-estate-brand-vector.jpg'"
                     alt="Facebook Logo"
-                    class="h-16 mx-auto mb-4"
+                    class="h-16 mx-auto mb-4 animate-pulse rounded-full"
                 />
             </div>
 
