@@ -1,6 +1,6 @@
 <template>
-    <div class="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-        <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-6">
+    <div class="min-h-screen bg-gray-500 flex items-center justify-center p-4">
+        <div class="bg-gray-100 rounded-lg shadow-lg w-full max-w-md p-6">
             <div class="text-center mb-8">
                 <img
                     :src="'https://static.vecteezy.com/system/resources/previews/008/997/710/non_2x/udo-logo-udo-letter-udo-letter-logo-design-initials-udo-logo-linked-with-circle-and-uppercase-monogram-logo-udo-typography-for-technology-business-and-real-estate-brand-vector.jpg'"
