@@ -16,7 +16,7 @@ final class UserCreator
 
     public function __invoke(UserCreatorRequest $request): void
     {
-        $user = new User(
+        $user = User::create(
             $request->firstName(),
             $request->lastName(),
             $request->email(),

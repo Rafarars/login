@@ -4,6 +4,7 @@ namespace App\src\Users\Domain;
 
 final class User
 {
+    private readonly string$id;
     private string $firstName;
     private string $lastName;
     private string $email;
@@ -14,6 +15,7 @@ final class User
     private string $gender;
 
     public function __construct(
+        ?string  $id,
         string $firstName,
         string $lastName,
         string $email,
@@ -23,6 +25,7 @@ final class User
         string $year,
         string $gender
     ) {
+        $this->id = $id;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->email = $email;
@@ -33,7 +36,7 @@ final class User
         $this->gender = $gender;
     }
 
-    public function create(
+    public static function create(
         string $firstName,
         string $lastName,
         string $email,
@@ -44,6 +47,7 @@ final class User
         string $gender
     ): User {
         return new self(
+            null,
             $firstName,
             $lastName,
             $email,
@@ -53,6 +57,11 @@ final class User
             $year,
             $gender
         );
+    }
+
+    public function getId(): ?string
+    {
+        return $this->id;
     }
 
     public function getFirstName(): string
