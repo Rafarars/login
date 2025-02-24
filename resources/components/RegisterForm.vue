@@ -39,7 +39,7 @@
                     <input
                         v-model="form.email"
                         type="email"
-                        placeholder="Número de celular o correo electrónico"
+                        placeholder="Correo electrónico"
                         class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300 bg-white text-black"
                         :class="{ 'border-red-500': errors.email }"
                     />

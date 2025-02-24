@@ -14,22 +14,29 @@
                     <input
                         v-model="form.email"
                         type="email"
-                        placeholder="Correo electrónico o número de teléfono"
-                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Correo electrónico"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                         :class="{ 'border-red-500': errors.email }"
                     />
                     <span v-if="errors.email" class="text-red-500 text-sm">{{ errors.email }}</span>
                 </div>
 
-                <div>
+                <div class="relative">
                     <input
                         v-model="form.password"
-                        type="password"
+                        :type="showPassword ? 'text' : 'password'"
                         placeholder="Contraseña"
-                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                         :class="{ 'border-red-500': errors.password }"
                     />
                     <span v-if="errors.password" class="text-red-500 text-sm">{{ errors.password }}</span>
+                    <button
+                        type="button"
+                        @click="togglePasswordVisibility"
+                        class="absolute inset-y-0 right-0 px-3 flex items-center"
+                    >
+                        <i :class="showPassword ? 'bi bi-eye' : 'bi bi-eye-slash'" class="text-gray-500 hover:text-gray-700"></i>
+                    </button>
                 </div>
 
                 <button
@@ -68,6 +75,11 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 const loading = ref(false)
 const errors = ref({})
+const showPassword = ref(false)
+
+const togglePasswordVisibility = () => {
+    showPassword.value = !showPassword.value
+}
 
 const form = ref({
     email: '',
