@@ -91,7 +91,7 @@ const handleLogin = async () => {
     errors.value = {}
 
     try {
-        const response = await fetch('http://your-laravel-api/api/login', {
+        const response = await fetch('/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
