@@ -25,12 +25,12 @@ class AuthController extends Controller
 
         $userCreator = new UserCreator(new EloquentUserRepository(new User));
         $userCreator(new UserCreatorRequest(
-            $request->firstName(),
-            $request->lastName(),
-            $request->email(),
-            $request->password(),
-            $request->birth_date(),
-            $request->gender()
+            $request->firstName,
+            $request->lastName,
+            $request->email,
+            $request->password,
+            $request->birth_date,
+            $request->gender
         ));
 
         $user = User::where('email', $request->email)->first();

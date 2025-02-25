@@ -52,7 +52,7 @@ final class UserCreatorRequest
         return $this->birth_date;
     }
 
-    public function Gender(): string
+    public function gender(): string
     {
         return $this->gender;
     }

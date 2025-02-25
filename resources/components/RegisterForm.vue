@@ -159,19 +159,21 @@ const handleRegister = async () => {
 
     try {
         // Importante: actualiza la URL al endpoint de tu API.
-        const response = await fetch('/register', {
+        const response = await fetch('/api/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Accept': 'application/json',
             },
             body: JSON.stringify({
-                name: `${form.value.firstName} ${form.value.lastName}`,
+                firstName: form.value.firstName,
+                lastName: form.value.lastName,
                 email: form.value.email,
                 password: form.value.password,
                 birth_date: birthDate,
                 gender: form.value.gender,
             })
-        })
+        });
 
         const data = await response.json()
 

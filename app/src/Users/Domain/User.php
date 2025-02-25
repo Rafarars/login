@@ -4,7 +4,7 @@ namespace App\src\Users\Domain;
 
 final class User
 {
-    private readonly string$id;
+    private readonly ?string $id;
     private string $firstName;
     private string $lastName;
     private string $email;

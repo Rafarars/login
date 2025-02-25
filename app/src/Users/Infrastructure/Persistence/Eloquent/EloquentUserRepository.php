@@ -18,9 +18,7 @@ final class EloquentUserRepository extends EloquentRepository implements UserRep
     protected function toDatabase(array $domainData): array
     {
         return [
-            'id' => $domainData['id'],
-            'first_name' => $domainData['firstName'],
-            'last_name' => $domainData['lastName'],
+            'name' => $domainData['firstName'] . ' ' . $domainData['lastName'],
             'email' => $domainData['email'],
             'password' => bcrypt($domainData['password']),
             'birth_date' => $domainData['birth_date'],
