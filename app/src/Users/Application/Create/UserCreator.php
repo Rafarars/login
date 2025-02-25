@@ -21,9 +21,7 @@ final class UserCreator
             $request->lastName(),
             $request->email(),
             $request->password(),
-            $request->day(),
-            $request->month(),
-            $request->year(),
+            $request->birth_date(),
             $request->gender()
         );
 

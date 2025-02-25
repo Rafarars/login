@@ -23,28 +23,15 @@ final class EloquentUserRepository extends EloquentRepository implements UserRep
             'last_name' => $domainData['lastName'],
             'email' => $domainData['email'],
             'password' => bcrypt($domainData['password']),
-            'birth_date' => $this->formatBirthDate(
-                $domainData['year'],
-                $domainData['month'],
-                $domainData['day']
-            ),
+            'birth_date' => $domainData['birth_date'],
             'gender' => $domainData['gender'],
         ];
-    }
-
-    private function formatBirthDate(string $year, string $month, string $day): string
-    {
-        return sprintf('%s-%s-%s',
-            $year,
-            str_pad($month, 2, '0', STR_PAD_LEFT),
-            str_pad($day, 2, '0', STR_PAD_LEFT)
-        );
     }
 
     // Implementación del save() específico para User
     public function save(User $user): void
     {
-        $domainData = $user->toPrimitive(); // Asume que User tiene este método
+        $domainData = $user; // Asume que User tiene este método
         parent::save($domainData);
     }
 }

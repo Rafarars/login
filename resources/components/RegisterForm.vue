@@ -153,12 +153,13 @@ const years = computed(() => {
 })
 
 const handleRegister = async () => {
+    const birthDate = `${form.value.year}-${form.value.month}-${form.value.day}`;
     loading.value = true
     errors.value = {}
 
     try {
         // Importante: actualiza la URL al endpoint de tu API.
-        const response = await fetch('/api/register', {
+        const response = await fetch('/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -167,8 +168,8 @@ const handleRegister = async () => {
                 name: `${form.value.firstName} ${form.value.lastName}`,
                 email: form.value.email,
                 password: form.value.password,
-                birth_date: `${form.value.year}-${form.value.month}-${form.value.day}`,
-                gender: form.value.gender
+                birth_date: birthDate,
+                gender: form.value.gender,
             })
         })
 

@@ -8,9 +8,7 @@ final class UserCreatorRequest
     private $lastName;
     private $email;
     private $password;
-    private $day;
-    private $month;
-    private $year;
+    private $birth_date;
     private $gender;
 
     public function __construct(
@@ -18,18 +16,14 @@ final class UserCreatorRequest
         string $lastName,
         string $email,
         string $password,
-        string $day,
-        string $month,
-        string $year,
+        string $birth_date,
         string $gender
     ) {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->email = $email;
         $this->password = $password;
-        $this->day = $day;
-        $this->month = $month;
-        $this->year = $year;
+        $this->birth_date = $birth_date;
         $this->gender = $gender;
     }
 
@@ -53,19 +47,9 @@ final class UserCreatorRequest
         return $this->password;
     }
 
-    public function day(): string
+    public function birth_date(): string
     {
-        return $this->day;
-    }
-
-    public function month(): string
-    {
-        return $this->month;
-    }
-
-    public function year(): string
-    {
-        return $this->year;
+        return $this->birth_date;
     }
 
     public function Gender(): string

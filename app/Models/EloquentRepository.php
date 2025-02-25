@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\src\Users\Domain\User as Users;
 
 abstract class EloquentRepository
 {
@@ -19,9 +20,9 @@ abstract class EloquentRepository
         return $domainData; // Implementación base (puede ser sobrescrita)
     }
 
-    public function save(array $domainData): void
+    public function save(Users $user): void
     {
-        $dbData = $this->toDatabase($domainData);
+        $dbData = $this->toDatabase($user->toPrimitive());
         $this->model->create($dbData);
     }
 

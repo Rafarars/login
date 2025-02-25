@@ -9,9 +9,7 @@ final class User
     private string $lastName;
     private string $email;
     private string $password;
-    private string $day;
-    private string $month;
-    private string $year;
+    private string $birth_date;
     private string $gender;
 
     public function __construct(
@@ -20,9 +18,7 @@ final class User
         string $lastName,
         string $email,
         string $password,
-        string $day,
-        string $month,
-        string $year,
+        string $birth_date,
         string $gender
     ) {
         $this->id = $id;
@@ -30,9 +26,7 @@ final class User
         $this->lastName = $lastName;
         $this->email = $email;
         $this->password = $password;
-        $this->day = $day;
-        $this->month = $month;
-        $this->year = $year;
+        $this->birth_date = $birth_date;
         $this->gender = $gender;
     }
 
@@ -41,9 +35,7 @@ final class User
         string $lastName,
         string $email,
         string $password,
-        string $day,
-        string $month,
-        string $year,
+        string $birth_date,
         string $gender
     ): User {
         return new self(
@@ -52,9 +44,7 @@ final class User
             $lastName,
             $email,
             $password,
-            $day,
-            $month,
-            $year,
+            $birth_date,
             $gender
         );
     }
@@ -84,19 +74,9 @@ final class User
         return $this->password;
     }
 
-    public function getDay(): string
+    public function getBirthDate(): string
     {
-        return $this->day;
-    }
-
-    public function getMonth(): string
-    {
-        return $this->month;
-    }
-
-    public function getYear(): string
-    {
-        return $this->year;
+        return $this->birth_date;
     }
 
     public function getGender(): string
@@ -112,9 +92,7 @@ final class User
             'lastName' => $this->lastName,
             'email' => $this->email,
             'password' => $this->password,
-            'day' => $this->day,
-            'month' => $this->month,
-            'year' => $this->year,
+            'birth_date' => $this->birth_date,
             'gender' => $this->gender,
         ];
     }
