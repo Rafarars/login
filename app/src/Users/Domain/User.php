@@ -103,4 +103,19 @@ final class User
     {
         return $this->gender;
     }
+
+    public function toPrimitive(): array
+    {
+        return [
+            'id' => $this->id,
+            'firstName' => $this->firstName,
+            'lastName' => $this->lastName,
+            'email' => $this->email,
+            'password' => $this->password,
+            'day' => $this->day,
+            'month' => $this->month,
+            'year' => $this->year,
+            'gender' => $this->gender,
+        ];
+    }
 }
