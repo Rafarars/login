@@ -46,15 +46,22 @@
                     <span v-if="errors.email" class="text-red-500 text-sm">{{ errors.email }}</span>
                 </div>
 
-                <div>
+                <div class="relative">
                     <input
                         v-model="form.password"
-                        type="password"
+                        :type="showPassword ? 'text' : 'password'"
                         placeholder="Contraseña nueva"
                         class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300 bg-white text-black"
                         :class="{ 'border-red-500': errors.password }"
                     />
                     <span v-if="errors.password" class="text-red-500 text-sm">{{ errors.password }}</span>
+                    <button
+                        type="button"
+                        @click="togglePasswordVisibility"
+                        class="absolute inset-y-0 right-0 px-3 flex items-center"
+                    >
+                        <i :class="showPassword ? 'bi bi-eye' : 'bi bi-eye-slash'" class="text-gray-500 hover:text-gray-700"></i>
+                    </button>
                 </div>
 
                 <div class="space-y-2">
@@ -130,6 +137,11 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 const loading = ref(false)
 const errors = ref({})
+const showPassword = ref(false)
+
+const togglePasswordVisibility = () => {
+    showPassword.value = !showPassword.value
+}
 
 const form = ref({
     firstName: '',
@@ -153,12 +165,11 @@ const years = computed(() => {
 })
 
 const handleRegister = async () => {
-    const birthDate = `${form.value.year}-${form.value.month}-${form.value.day}`;
-    loading.value = true
-    errors.value = {}
+    const birthDate = `${form.value.year}-${String(form.value.month).padStart(2, '0')}-${String(form.value.day).padStart(2, '0')}`;
+    loading.value = true;
+    errors.value = {};
 
     try {
-        // Importante: actualiza la URL al endpoint de tu API.
         const response = await fetch('/api/register', {
             method: 'POST',
             headers: {
@@ -175,23 +186,23 @@ const handleRegister = async () => {
             })
         });
 
-        const data = await response.json()
+        const data = await response.json();
 
         if (!response.ok) {
-            // Suponemos que el backend devuelve un objeto `errors`
-            errors.value = data.errors || { message: data.message }
-            throw new Error(data.message)
+            if (data.errors) {
+                errors.value = data.errors;
+            } else {
+                errors.value.general = data.message || 'Error al registrar el usuario.';
+            }
+            throw new Error(data.message);
         }
 
-        // Si el backend retorna un token (por ejemplo, usando Sanctum), lo guardamos
-        localStorage.setItem('token', data.token)
-
-        // Redirige al login o a la ruta que desees
-        router.push('/login')
+        localStorage.setItem('token', data.token);
+        router.push('/login');
     } catch (error) {
-        console.error('Registration error:', error)
+        console.error('Registration error:', error);
     } finally {
-        loading.value = false
+        loading.value = false;
     }
 }
 </script>

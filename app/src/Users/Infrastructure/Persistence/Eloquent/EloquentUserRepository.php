@@ -29,7 +29,8 @@ final class EloquentUserRepository extends EloquentRepository implements UserRep
     // Implementación del save() específico para User
     public function save(User $user): void
     {
-        $domainData = $user; // Asume que User tiene este método
-        parent::save($domainData);
+        $domainData = $user->toPrimitive(); // Obtiene los datos primitivos del User
+        $dbData = $this->toDatabase($domainData);
+        $this->model->create($dbData);
     }
 }
