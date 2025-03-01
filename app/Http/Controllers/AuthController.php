@@ -44,14 +44,17 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $request->validate([
+        $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required'
         ]);
 
-        if (!Auth::attempt($request->only('email', 'password'))) {
+        if (!Auth::attempt($credentials)) {
             return response()->json([
-                'message' => 'Invalid login details'
+                'message' => 'Credenciales inválidas',
+                'errors' => [
+                    'email' => ['Las credenciales proporcionadas son incorrectas']
+                ]
             ], 401);
         }
 

@@ -47,12 +47,6 @@
                     {{ loading ? 'Iniciando sesión...' : 'Iniciar sesión' }}
                 </button>
 
-                <div class="text-center">
-                    <a href="#" class="text-blue-500 hover:underline text-sm">
-                        ¿Olvidaste tu contraseña?
-                    </a>
-                </div>
-
                 <hr class="my-4" />
 
                 <div class="text-center">
