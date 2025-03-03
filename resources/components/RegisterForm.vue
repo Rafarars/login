@@ -46,6 +46,9 @@
                     <span v-if="errors.email" class="text-red-500 text-sm">{{ errors.email }}</span>
                 </div>
 
+                <div class="mb-1 text-xs text-gray-500">
+                    Mínimo 8 caracteres, con 1 mayúscula, 1 minúscula y 1 número.
+                </div>
                 <div class="relative">
                     <input
                         v-model="form.password"
@@ -109,7 +112,7 @@
                 </div>
 
                 <p class="text-xs text-gray-500">
-                    Al hacer clic en "Registrarte", aceptas nuestras Condiciones, la Política de privacidad y la Política de cookies.
+                    Registrate para poder acceder a nuestra plataforma.
                 </p>
 
                 <button

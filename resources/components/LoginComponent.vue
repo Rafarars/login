@@ -4,7 +4,7 @@
             <div class="text-center mb-8">
                 <img
                     :src="'https://static.vecteezy.com/system/resources/previews/008/997/710/non_2x/udo-logo-udo-letter-udo-letter-logo-design-initials-udo-logo-linked-with-circle-and-uppercase-monogram-logo-udo-typography-for-technology-business-and-real-estate-brand-vector.jpg'"
-                    alt="Facebook Logo"
+                    alt="Udo logo"
                     class="h-16 mx-auto mb-4 animate-pulse rounded-full"
                 />
             </div>
